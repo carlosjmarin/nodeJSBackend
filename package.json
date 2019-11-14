@@ -15,10 +15,12 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongo": "^0.1.0",
     "mongodb": "^3.3.4",
-    "mongoose": "^5.7.10"
+    "mongoose": "^5.7.10",
+    "newman": "^4.5.5"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"

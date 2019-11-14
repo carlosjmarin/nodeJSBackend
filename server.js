@@ -3,14 +3,31 @@
 var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
-  mongoose = require('mongoose'),
+  mongodb = require('mongodb').MongoClient,
   User = require('./api/models/mainModel'), //created model loading here
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  cors = require('cors');
   
 // mongoose instance connection url connection
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Maindb'); 
+const url = 'mongodb://localhost:27017'
 
+function addItem( item) {
+mongodb.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("test");
+  dbo.collection("testcollection").insertOne(item, function(err, res) {
+    if (err) throw err;
+    console.log("1 document inserted");
+    db.close();
+  });
+})};
+
+addItem({
+  name: 'carlos',
+  age: 23
+})
+
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
