@@ -5,80 +5,118 @@ var Schema = mongoose.Schema;
 
 
 var UserSchema = new Schema({
-  firstName: {
+  FirstName: 
+  {
     type: String,
     required: 'Kindly enter your firstName'
   },
-  lastName: {
+  LastName: 
+  {
     type: String,
     required: 'Kindly enter your lastName'
   },
-  Created_date: {
+  CreatedDate: 
+  {
     type: Date,
     default: Date.now
   },
-  trinityID: {
+  TrinityID: 
+  {
     type: Number,
     required: 'put your trinity id here'
   }
 });
 
 var StudentSchema = new Schema({
-  firstName: {
+  FirstName: 
+  {
     type: String,
     required: 'Kindly enter your firstName'
   },
-  lastName: {
+  LastName: 
+  {
     type: String,
     required: 'Kindly enter your lastName'
   },
-  Created_date: {
+  CreatedDate: 
+  {
     type: Date,
     default: Date.now
   },
-  trinityID: {
+  TrinityID: 
+  {
     type: Number,
     required: 'put your trinity id here'
   }
 });
 
 var AdminSchema = new Schema({
-  firstName: {
+  FirstName: 
+  {
     type: String,
     required: 'Kindly enter your firstName'
   },
-  lastName: {
+  LastName: 
+  {
     type: String,
     required: 'Kindly enter your lastName'
   },
-  Created_date: {
+  CreatedDate: 
+  {
     type: Date,
     default: Date.now
   },
-  trinityID: {
+  TrinityID: 
+  {
     type: Number,
-    required: 'put your trinity id here'
+    required: 'Put your Trinity ID here'
   },
-  facultyTF: {
+  Faculty: 
+  {
     type: Boolean
+  },
+  Password: 
+  {
+    type: String
   }
 });
 
 var EventSchema = new Schema({
-  Created_date: {
+  EventDate: 
+  {
     type: Date,
-    default: Date.now
+    required: 'Enter the event date'
+    //default: Date.now
   },
-  Club: {
-    type: Boolean
+  Club: 
+  {
+    Type: Boolean,
+    Name: 
+    {
+      type: String
+    },
+    Description: 
+    {
+      type: String
+    }
   },
-  Sport: {
-    type: Boolean
+  Sport: 
+  {
+    type: Boolean,
+    MensSport: 
+    {
+      //Baseball, Basketball, Cross Country, Football, Soccer
+      
+    },
+    WomensSport:
+    {
+      //Basketball, Cross Country, Soccer, Softball, Volleyball
+    }
   }
 });
 
-var HawkinsSchema = new Schema({
-  Created_date: {
+/*var HawkinsSchema = new Schema({
+  CreatedDate: {
     type: Date,
     default: Date.now
   },
@@ -88,7 +126,7 @@ var HawkinsSchema = new Schema({
   FRESH: {
     type: Boolean
   }
-});
+});*/
 
 var SportsSchema = new Schema({
   Created_date: {
@@ -101,9 +139,6 @@ var SportsSchema = new Schema({
   Football: {
     type: Boolean
   },
-  Baseball: {
-    type: Boolean
-  }
 });
 
 module.exports = mongoose.model('Users', UserSchema);
