@@ -4,6 +4,7 @@
 
 var mongoose = require('mongoose'),
   User = mongoose.model('Users');
+  Student = mongoose.model('Students')
 
 exports.list_all_users = function(req, res) {
   User.find({}, function(err, User) {
@@ -48,5 +49,24 @@ exports.delete_a_user = function(req, res) {
     if (err)
       res.send(err);
     res.json({ message: 'User successfully deleted' });
+  });
+};
+
+//Student
+
+exports.Students.list_all_users = function(req, res) {
+  User.find({}, function(err, User) {
+    if (err)
+      res.send(err);
+    res.json(User);
+  });
+};
+
+exports.Students.create_a_user = function(req, res) {
+  var new_User = new User(req.body);
+  new_User.save(function(err, User) {
+    if (err)
+      res.send(err);
+    res.json(User);
   });
 };
