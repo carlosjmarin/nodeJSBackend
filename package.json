@@ -19,7 +19,7 @@
     "express": "^4.17.1",
     "mongo": "^0.1.0",
     "mongodb": "^3.3.4",
-    "mongoose": "^5.7.10",
+    "mongoose": "^5.7.11",
     "newman": "^4.5.5"
   },
   "devDependencies": {
