@@ -15,6 +15,7 @@ module.exports = function(app) { //constructor for module.exports
 
   app.route('/users/:UserId')
     .get(userList.read_a_user)
+    .get(userList.read_auth_level)
     .put(userList.update_a_user)
     .delete(userList.delete_a_user);
 

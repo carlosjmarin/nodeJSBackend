@@ -4,6 +4,7 @@
 
 var mongoose = require('mongoose'),
   User = mongoose.model('Users');
+  //Superuser = mongoose.model('supuser');
 
 exports.list_all_users = function(req, res) {
   User.find({}, function(err, User) {
@@ -31,6 +32,15 @@ User.findOne({trinityID: req.params.trinityID},
   });
 };
 
+exports.read_auth_level = function(req, res) {
+  User.findOne({authLevel: req.params.authLevel},
+    function(err, User) {
+      if (err)
+        res.send(err);
+      res.json(User);
+    });
+  };
+
 exports.update_a_user = function(req, res) {
   User.findOneAndUpdate({trinityID: req.params.trinityID}, req.body, 
     {new: true}, function(err, User) {
@@ -50,3 +60,4 @@ exports.delete_a_user = function(req, res) {
     res.json({ message: 'User successfully deleted' });
   });
 };
+
