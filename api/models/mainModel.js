@@ -1,6 +1,6 @@
 //here we will model things
 'use strict';
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
@@ -24,6 +24,11 @@ var UserSchema = new Schema({
   {
     type: Number,
     required: 'put your trinity id here'
+  },
+  AuthLevel://this will be 1 for admin or 2 for student 
+  {
+    type: Number,
+    required: 'put your AuthLevel here'
   }
 });
 
@@ -49,6 +54,21 @@ var StudentSchema = new Schema({
     required: 'put your trinity id here'
   }
 });
+//first connection for the admins
+// var supuserSchema = new Schema({
+//   username:{
+//     type: String,
+//     required: true
+//   },
+//   password:{
+//     type: String,
+//     required: true
+//   },
+//   accesslevel:{
+//     type: String,
+//     required: true
+//   },
+// })
 
 var AdminSchema = new Schema({
   FirstName: 
@@ -142,4 +162,5 @@ var SportsSchema = new Schema({
 });
 
 module.exports = mongoose.model('Users', UserSchema);
+//module.exports = mongoose.model('supuser', supuserSchema);
 //we will make more of these for each schema nesseccary
